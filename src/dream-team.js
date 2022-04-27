@@ -21,7 +21,7 @@ function createDreamTeam(arguments) {
     console.log(arguments);
    for (let i = 0; i < arguments.length; i++) {
     if (arguments[i] === null || arguments[i] == undefined || typeof arguments[i] !== 'string' ) {
-       arguments.splice(i, 1);
+      throw new NotImplementedError();
       }
      
       for(let j = 0; j < arguments[i].length; j++) 

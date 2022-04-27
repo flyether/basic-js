@@ -22,7 +22,7 @@ function dateSample(sampleActivity ) {
  
 if (sampleActivity !== Number || sampleActivity === undefined )
  {
-    return false;
+  throw new NotImplementedError();
   }
 let t 
 t = ( (Math.log(MODERN_ACTIVITY/sampleActivity))/(0.693/HALF_LIFE_PERIOD) )
