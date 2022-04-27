@@ -15,15 +15,22 @@ const { NotImplementedError } = require('../extensions/index.js');
  */
 function createDreamTeam(arguments) {
   let members = [] ;
-  if (typeof arguments[i] !== 'string') {
-    return false;
-   }
- for (let i = 0; i < arguments.length; i++) {
+   if ( arguments === null ||  arguments === undefined) {
+     return false;
+    }
+    console.log(arguments);
+   for (let i = 0; i < arguments.length; i++) {
+    if (arguments[i] === null || arguments[i] == undefined || typeof arguments[i] !== 'string' ) {
+       arguments.splice(i, 1);
+      }
+     
+      for(let j = 0; j < arguments[i].length; j++) 
+      arguments[i] = arguments[i].trim()
+    members.push(arguments[i][0]);
+    
   
-  members.push(arguments[i][0]);
-
- }
- return members.sort().toUpperCase().join('');
+   }
+   return members.sort().join('').toUpperCase();
 }
 
 module.exports = {
