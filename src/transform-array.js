@@ -19,27 +19,42 @@ function transform(arr) {
     if (arr[i] === null ||arr[i] == undefined || typeof arr[i] !== 'string' ||arr[i] === false) {
       throw new NotImplementedError();
       }
-      if (arr[i] === '--discard-next') {
-          let result = arr.slice(0, i) + "," + arr.slice(i + 2);
-          let newArray = result;
-          return newArray;
-      } else if (arr[i] === '--discard-prev') {
-          let result = arr.slice(0, i - 1) + "," + arr.slice(i + 1);
-          let newArray = result;
-          return newArray;
-      } else if (arr[i] === '--double-next') {
-          let result = arr.slice(0, i) + "," + arr[i + 1] + "," + arr.slice(i + 1);
-          let newArray = result;
-          return newArray;
-      } else if (arr[i] === '--double-prev') {
-          let result = arr.slice(0, i) + "," + arr[i - 1] + "," + arr.slice(i + 1);
-          let newArray = result;
+      // if (arr[i] === '--discard-next') {
+      //     let result = arr.slice(0, i) + "," + arr.slice(i + 2);
+      //     let newArray = result;
+      //     return newArray;
+      // } else if (arr[i] === '--discard-prev') {
+      //     let result = arr.slice(0, i - 1) + "," + arr.slice(i + 1);
+      //     let newArray = result;
+      //     return newArray;
+      // } else if (arr[i] === '--double-next') {
+      //     let result = arr.slice(0, i) + "," + arr[i + 1] + "," + arr.slice(i + 1);
+      //     let newArray = result;
+      //     return newArray;
+      // } else if (arr[i] === '--double-prev') {
+      //     let result = arr.slice(0, i) + "," + arr[i - 1] + "," + arr.slice(i + 1);
+      //     let newArray = result;
       
-          return newArray;
+      //     return newArray;
           
       }
+
+if (arr.length === 0) {
+  return [];
+}
+let result = [];
+result = arr.slice(0, 1);
+if(!(Array.isArray(arr))) {
+ 
+  throw new Error("'arr' parameter must be an instance of the Array!"); }
+  if(!(arr instanceof Array)) {
+    result = result.concat(transform(arr[1]));
+    throw new Error("'arr' parameter must be an instance of the Array!");
+
+}
+
+
   }
-};
 
 
 module.exports = {
